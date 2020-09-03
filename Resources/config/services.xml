@@ -13,33 +13,55 @@
     </parameters>
 
     <services>
-    	<service id="tokopedia.sdk.auth.authorization" class="Gandung\Tokopedia\Auth\AuthorizationInterface">
+    	<service id="Gandung\Tokopedia\Auth\AuthorizationInterface" class="Gandung\Tokopedia\Auth\Authorization">
     		<argument type="service" id="Psr\Cache\CacheItemPoolInterface" />
     		<argument>%tokopedia.auth.requirement%</argument>
     	</service>
-    	<service id="tokopedia.sdk.service_factory" class="Gandung\Tokopedia\ServiceFactory">
+
+    	<service id="Gandung\Tokopedia\ServiceFactory">
     		<argument type="service" id="Gandung\Tokopedia\Auth\AuthorizationInterface" />
     	</service>
-    	<service id="tokopedia.sdk.service.campaign" class="Gandung\Tokopedia\Service\Campaign">
-    		<factory service="Gandung\Tokopedia\ServiceFactory" method="getCampaign" />
+
+    	<service id="Gandung\Tokopedia\Service\Campaign" public="true">
+            <factory service="Gandung\Tokopedia\ServiceFactory" method="getCampaign" />
     	</service>
-    	<service id="tokopedia.sdk.service.category" class="Gandung\Tokopedia\Service\Category">
+
+        <service id="tokopedia.sdk.service.campaign" alias="Gandung\Tokopedia\Service\Campaign" public="true" />
+
+    	<service id="Gandung\Tokopedia\Service\Category" public="true">
     		<factory service="Gandung\Tokopedia\ServiceFactory" method="getCategory" />
     	</service>
-    	<service id="tokopedia.sdk.service.interaction" class="Gandung\Tokopedia\Service\Interaction">
+
+        <service id="tokopedia.sdk.service.category" alias="Gandung\Tokopedia\Service\Category" public="true" />
+
+    	<service id="Gandung\Tokopedia\Service\Interaction" public="true">
     		<factory service="Gandung\Tokopedia\ServiceFactory" method="getInteraction" />
     	</service>
-    	<service id="tokopedia.sdk.service.logistic" class="Gandung\Tokopedia\Service\Logistic">
+
+        <service id="tokopedia.sdk.service.interaction" alias="Gandung\Tokopedia\Service\Interaction" public="true" />
+
+    	<service id="Gandung\Tokopedia\Service\Logistic" public="true">
     		<factory service="Gandung\Tokopedia\ServiceFactory" method="getLogistic" />
     	</service>
-    	<service id="tokopedia.sdk.service.order" class="Gandung\Tokopedia\Service\Order">
+
+        <service id="tokopedia.sdk.service.logistic" alias="Gandung\Tokopedia\Service\Logistic" public="true" />
+
+    	<service id="Gandung\Tokopedia\Service\Order" public="true">
     		<factory service="Gandung\Tokopedia\ServiceFactory" method="getOrder" />
     	</service>
-    	<service id="tokopedia.sdk.service.product" class="Gandung\Tokopedia\Service\Product">
+
+        <service id="tokopedia.sdk.service.order" alias="Gandung\Tokopedia\Service\Order" public="true" />
+
+    	<service id="Gandung\Tokopedia\Service\Product" public="true">
     		<factory service="Gandung\Tokopedia\ServiceFactory" method="getProduct" />
     	</service>
-    	<service id="tokopedia.sdk.service.shop" class="Gandung\Tokopedia\Service\Shop">
+
+        <service id="tokopedia.sdk.service.product" alias="Gandung\Tokopedia\Service\Product" public="true" />
+
+    	<service id="Gandung\Tokopedia\Service\Shop" public="true">
     		<factory service="Gandung\Tokopedia\ServiceFactory" method="getShop" />
     	</service>
+
+        <service id="tokopedia.sdk.service.shop" alias="Gandung\Tokopedia\Service\Shop" public="true" />
     </services>
 </container>
