@@ -24,9 +24,9 @@ class TokopediaExtension extends Extension
 
 		$loader->load('services.xml');
 
-		$processor = new Processor();
+		$processor     = new Processor();
 		$configuration = new Configuration();
-		$config = $processor->processConfiguration($configuration, $configs);
+		$config        = $processor->processConfiguration($configuration, $configs);
 
 		$container->setParameter('tokopedia.fulfillment_service_id', $config['fulfillment_service_id']);
 		$container->setParameter('tokopedia.client_id', $config['client_id']);
