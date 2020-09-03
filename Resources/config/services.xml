@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services https://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+    	<parameter key="tokopedia.auth.requirement" type="collection">
+    		<parameter key="fs_id">%tokopedia.fulfillment_service_id%</parameter>
+    		<parameter key="client_id">%tokopedia.client_id%</parameter>
+    		<parameter key="client_secret">%tokopedia.client_secret%</parameter>
+    	</parameter>    	
+    </parameters>
+
+    <services>
+    	<service id="tokopedia.sdk.auth.authorization" class="Gandung\Tokopedia\Auth\AuthorizationInterface">
+    		<argument type="service" id="Psr\Cache\CacheItemPoolInterface" />
+    		<argument>%tokopedia.auth.requirement%</argument>
+    	</service>
+    	<service id="tokopedia.sdk.service_factory" class="Gandung\Tokopedia\ServiceFactory">
+    		<argument type="service" id="Gandung\Tokopedia\Auth\AuthorizationInterface" />
+    	</service>
+    	<service id="tokopedia.sdk.service.campaign" class="Gandung\Tokopedia\Service\Campaign">
+    		<factory service="Gandung\Tokopedia\ServiceFactory" method="getCampaign" />
+    	</service>
+    	<service id="tokopedia.sdk.service.category" class="Gandung\Tokopedia\Service\Category">
+    		<factory service="Gandung\Tokopedia\ServiceFactory" method="getCategory" />
+    	</service>
+    	<service id="tokopedia.sdk.service.interaction" class="Gandung\Tokopedia\Service\Interaction">
+    		<factory service="Gandung\Tokopedia\ServiceFactory" method="getInteraction" />
+    	</service>
+    	<service id="tokopedia.sdk.service.logistic" class="Gandung\Tokopedia\Service\Logistic">
+    		<factory service="Gandung\Tokopedia\ServiceFactory" method="getLogistic" />
+    	</service>
+    	<service id="tokopedia.sdk.service.order" class="Gandung\Tokopedia\Service\Order">
+    		<factory service="Gandung\Tokopedia\ServiceFactory" method="getOrder" />
+    	</service>
+    	<service id="tokopedia.sdk.service.product" class="Gandung\Tokopedia\Service\Product">
+    		<factory service="Gandung\Tokopedia\ServiceFactory" method="getProduct" />
+    	</service>
+    	<service id="tokopedia.sdk.service.shop" class="Gandung\Tokopedia\Service\Shop">
+    		<factory service="Gandung\Tokopedia\ServiceFactory" method="getShop" />
+    	</service>
+    </services>
+</container>
