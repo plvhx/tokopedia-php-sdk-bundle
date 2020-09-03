@@ -17,15 +17,6 @@ trait ServiceControllerTrait
 	private $service;
 
 	/**
-	 * @param ServiceInterface $service
-	 * @return void
-	 */
-	public function __construct(ServiceInterface $service)
-	{
-		$this->setService($service);
-	}
-
-	/**
 	 * Get associated service object.
 	 *
 	 * @return ServiceInterface
