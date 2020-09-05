@@ -18,9 +18,11 @@
     		<argument>%tokopedia.auth.requirement%</argument>
     	</service>
 
-    	<service id="Gandung\Tokopedia\ServiceFactory">
+    	<service id="Gandung\Tokopedia\ServiceFactory" class="Gandung\Tokopedia\ServiceFactory">
     		<argument type="service" id="Gandung\Tokopedia\Auth\AuthorizationInterface" />
     	</service>
+
+        <service id="tokopedia.sdk.service_factory" alias="Gandung\Tokopedia\ServiceFactory" />
 
     	<service id="Gandung\Tokopedia\Service\Campaign" public="true">
             <factory service="Gandung\Tokopedia\ServiceFactory" method="getCampaign" />
