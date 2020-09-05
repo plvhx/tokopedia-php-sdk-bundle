@@ -27,7 +27,7 @@ abstract class AbstractTestCase extends BaseTestCase
 	 *
 	 * @return ContainerBuilder
 	 */
-	private function createContainer()
+	protected function createContainer()
 	{
 		$parameters = new ParameterBag([
 			'tokopedia.fulfillment_service_id' => 1337,
@@ -62,20 +62,5 @@ abstract class AbstractTestCase extends BaseTestCase
 	public function getContainer()
 	{
 		return $this->container;
-	}
-
-	/**
-	 * {@inheritdoc}
-	 */
-	protected function setUp()
-	{
-		$this->setContainer($this->createContainer());
-	}
-
-	/**
-	 * {@inheritdoc}
-	 */
-	public function tearDown()
-	{
 	}
 }
