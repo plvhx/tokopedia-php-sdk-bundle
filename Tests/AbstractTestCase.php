@@ -6,9 +6,14 @@ namespace Gandung\Tokopedia\TokopediaBundle\Tests;
 
 use Gandung\Tokopedia\TokopediaBundle\DependencyInjection\TokopediaExtension;
 use PHPUnit\Framework\TestCase as BaseTestCase;
+use Psr\Cache\CacheItemPoolInterface;
+use Symfony\Component\Cache\Adapter\ArrayAdapter;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Definition;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
 
 use function sha1;
+use function sys_get_temp_dir;
 use function uniqid;
 
 /**
@@ -30,15 +35,30 @@ abstract class AbstractTestCase extends BaseTestCase
 	protected function createContainer()
 	{
 		$parameters = new ParameterBag([
-			'tokopedia.fulfillment_service_id' => 1337,
-			'tokopedia.client_id' => sha1(uniqid()),
-			'tokopedia.client_secret' => sha1(uniqid())
+			'kernel.name' => 'app',
+			'kernel.debug' => false,
+			'kernel.cache_dir' => sys_get_temp_dir(),
+			'kernel.environment' => 'test'
 		]);
 		$container  = new ContainerBuilder($parameters);
 		$extension  = new TokopediaExtension();
 
-		$extension->load([], $container);
+		$extension->load(
+			[
+				'tokopedia' => [
+					'fulfillment_service_id' => 1337,
+					'client_id' => sha1(uniqid()),
+					'client_secret' => sha1(uniqid())
+				]
+			],
+			$container
+		);
 		$container->registerExtension($extension);
+
+		$container->setDefinition(
+			CacheItemPoolInterface::class,
+			(new Definition(ArrayAdapter::class))->setPublic(true)
+		);
 
 		return $container;
 	}
