@@ -34,9 +34,9 @@
 	"require": {
 		"php": "^7.1",
 		"gandung/tokopedia-php-sdk": "^1.0@dev",
-		"symfony/config": "^5.2@dev",
-		"symfony/dependency-injection": "^5.2@dev",
-		"symfony/http-kernel": "^5.2@dev"
+		"symfony/config": "^5.1",
+		"symfony/dependency-injection": "^5.1",
+		"symfony/http-kernel": "^5.1"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "^9.4@dev",
