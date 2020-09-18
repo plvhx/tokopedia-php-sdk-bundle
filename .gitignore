@@ -1,4 +1,6 @@
+tools/
 vendor/
 composer.lock
 phpunit.xml.dist.bak
 .phpunit.result.cache
+phive.xml
