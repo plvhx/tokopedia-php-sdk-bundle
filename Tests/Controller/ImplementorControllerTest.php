@@ -14,11 +14,11 @@ use Gandung\Tokopedia\TokopediaBundle\Tests\TestCaseTrait;
  */
 class ImplementorControllerTest extends AbstractTestCase
 {
-	use ServiceControllerTrait, TestCaseTrait;
+    use ServiceControllerTrait, TestCaseTrait;
 
-	public function testCanGetAndSetService()
-	{
-		$this->setService($this->getContainer()->get('tokopedia.sdk.service.campaign'));
-		$this->assertInstanceOf(ServiceInterface::class, $this->getService());
-	}
+    public function testCanGetAndSetService()
+    {
+        $this->setService($this->getContainer()->get('tokopedia.sdk.service.campaign'));
+        $this->assertInstanceOf(ServiceInterface::class, $this->getService());
+    }
 }

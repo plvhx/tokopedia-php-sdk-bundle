@@ -15,24 +15,24 @@ use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
  */
 class TokopediaExtension extends Extension
 {
-	/**
-	 * {@inheritdoc}
-	 */
-	public function load(array $configs, ContainerBuilder $container)
-	{
-		$loader = new XmlFileLoader(
-			$container,
-			new FileLocator(__DIR__ . DIRECTORY_SEPARATOR . '../Resources/config')
-		);
+    /**
+     * {@inheritdoc}
+     */
+    public function load(array $configs, ContainerBuilder $container)
+    {
+        $loader = new XmlFileLoader(
+            $container,
+            new FileLocator(__DIR__ . DIRECTORY_SEPARATOR . '../Resources/config')
+        );
 
-		$loader->load('services.xml');
+        $loader->load('services.xml');
 
-		$processor     = new Processor();
-		$configuration = new Configuration();
-		$config        = $processor->processConfiguration($configuration, $configs);
+        $processor     = new Processor();
+        $configuration = new Configuration();
+        $config        = $processor->processConfiguration($configuration, $configs);
 
-		$container->setParameter('tokopedia.fulfillment_service_id', $config['fulfillment_service_id']);
-		$container->setParameter('tokopedia.client_id', $config['client_id']);
-		$container->setParameter('tokopedia.client_secret', $config['client_secret']);
-	}
+        $container->setParameter('tokopedia.fulfillment_service_id', $config['fulfillment_service_id']);
+        $container->setParameter('tokopedia.client_id', $config['client_id']);
+        $container->setParameter('tokopedia.client_secret', $config['client_secret']);
+    }
 }

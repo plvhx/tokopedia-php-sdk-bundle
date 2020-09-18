@@ -11,29 +11,29 @@ use Gandung\Tokopedia\ServiceInterface;
  */
 trait ServiceControllerTrait
 {
-	/**
-	 * @var ServiceInterface
-	 */
-	private $service;
+    /**
+     * @var ServiceInterface
+     */
+    private $service;
 
-	/**
-	 * Get associated service object.
-	 *
-	 * @return ServiceInterface
-	 */
-	public function getService()
-	{
-		return $this->service;
-	}
+    /**
+     * Get associated service object.
+     *
+     * @return ServiceInterface
+     */
+    public function getService()
+    {
+        return $this->service;
+    }
 
-	/**
-	 * Set service object.
-	 *
-	 * @param ServiceInterface $service
-	 * @return void
-	 */
-	public function setService(ServiceInterface $service)
-	{
-		$this->service = $service;
-	}
+    /**
+     * Set service object.
+     *
+     * @param ServiceInterface $service
+     * @return void
+     */
+    public function setService(ServiceInterface $service)
+    {
+        $this->service = $service;
+    }
 }

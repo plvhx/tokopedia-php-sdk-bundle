@@ -9,18 +9,18 @@ namespace Gandung\Tokopedia\TokopediaBundle\Tests;
  */
 trait TestCaseTrait
 {
-	/**
-	 * {@inheritdoc}
-	 */
-	public function setUp(): void
-	{
-		$this->setContainer($this->createContainer());
-	}
+    /**
+     * {@inheritdoc}
+     */
+    public function setUp(): void
+    {
+        $this->setContainer($this->createContainer());
+    }
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function tearDown(): void
-	{
-	}
+    /**
+     * {@inheritdoc}
+     */
+    public function tearDown(): void
+    {
+    }
 }
