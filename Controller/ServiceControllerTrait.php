@@ -19,7 +19,7 @@ trait ServiceControllerTrait
     /**
      * Get associated service object.
      *
-     * @return ServiceInterface
+     * @return ServiceInterface|null
      */
     public function getService()
     {
@@ -29,10 +29,10 @@ trait ServiceControllerTrait
     /**
      * Set service object.
      *
-     * @param ServiceInterface $service
+     * @param ServiceInterface|null $service
      * @return void
      */
-    public function setService(ServiceInterface $service)
+    public function setService(ServiceInterface $service = null)
     {
         $this->service = $service;
     }
