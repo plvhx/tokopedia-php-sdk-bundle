@@ -36,6 +36,12 @@
 
         <service id="tokopedia.sdk.service.category" alias="Gandung\Tokopedia\Service\Category" public="true" />
 
+        <service id="Gandung\Tokopedia\Service\Encryption" public="true">
+            <factory service="Gandung\Tokopedia\ServiceFactory" method="getEncryption" />
+        </service>
+
+        <service id="tokopedia.sdk.service.encryption" alias="Gandung\Tokopedia\Service\Encryption" public="true" />
+
     	<service id="Gandung\Tokopedia\Service\Interaction" public="true">
     		<factory service="Gandung\Tokopedia\ServiceFactory" method="getInteraction" />
     	</service>
