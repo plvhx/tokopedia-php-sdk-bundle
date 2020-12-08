@@ -8,6 +8,7 @@ use Gandung\Tokopedia\ServiceFactory;
 use Gandung\Tokopedia\Auth\AuthorizationInterface;
 use Gandung\Tokopedia\Service\Campaign;
 use Gandung\Tokopedia\Service\Category;
+use Gandung\Tokopedia\Service\Encryption;
 use Gandung\Tokopedia\Service\Interaction;
 use Gandung\Tokopedia\Service\Logistic;
 use Gandung\Tokopedia\Service\Order;
@@ -50,6 +51,14 @@ class FetchServiceTest extends AbstractTestCase
         $this->assertInstanceOf(
             Category::class,
             $this->getContainer()->get(Category::class)
+        );
+    }
+
+    public function testCanGetEncryptionServiceObject()
+    {
+        $this->assertInstanceOf(
+            Encryption::class,
+            $this->getContainer()->get(Encryption::class)
         );
     }
 
