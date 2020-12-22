@@ -33,7 +33,7 @@
 	},
 	"require": {
 		"php": "^7.1",
-		"gandung/tokopedia-php-sdk": "^1.0@dev",
+		"gandung/tokopedia-php-sdk": "^1.1@dev",
 		"symfony/config": "^5.1",
 		"symfony/dependency-injection": "^5.1",
 		"symfony/http-kernel": "^5.1"
