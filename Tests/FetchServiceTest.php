@@ -14,6 +14,7 @@ use Gandung\Tokopedia\Service\Logistic;
 use Gandung\Tokopedia\Service\Order;
 use Gandung\Tokopedia\Service\Product;
 use Gandung\Tokopedia\Service\Shop;
+use Gandung\Tokopedia\Service\Webhooks;
 
 /**
  * @author Paulus Gandung Prakosa <rvn.plvhx@gmail.com>
@@ -99,6 +100,14 @@ class FetchServiceTest extends AbstractTestCase
         $this->assertInstanceOf(
             Shop::class,
             $this->getContainer()->get(Shop::class)
+        );
+    }
+
+    public function testCanGetWebhooksServiceObject()
+    {
+        $this->assertInstanceOf(
+            Webhooks::class,
+            $this->getContainer()->get(Webhooks::class)
         );
     }
 }
