@@ -71,5 +71,11 @@
     	</service>
 
         <service id="tokopedia.sdk.service.shop" alias="Gandung\Tokopedia\Service\Shop" public="true" />
+
+        <service id="Gandung\Tokopedia\Service\Webhooks" public="true">
+            <factory service="Gandung\Tokopedia\ServiceFactory" method="getWebhooks" />
+        </service>
+
+        <service id="tokopedia.sdk.service.webhooks" alias="Gandung\Tokopedia\Service\Webhooks" public="true" />
     </services>
 </container>
